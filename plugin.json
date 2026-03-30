@@ -1,0 +1,19 @@
+{
+  "commands": [
+    { "name": "plan", "description": "태스크를 분석하고 실행 계획 + 성공 기준을 수립", "file": "commands/plan.md" },
+    { "name": "work", "description": "승인된 계획을 기반으로 태스크를 실행", "file": "commands/work.md" },
+    { "name": "review", "description": "Worker의 결과물을 독립적으로 검증", "file": "commands/review.md" },
+    { "name": "run", "description": "Plan → Work → Review 전체 파이프라인 원클릭 실행", "file": "commands/run.md" },
+    { "name": "fix", "description": "피드백 반영하여 결과물 즉시 수정", "file": "commands/fix.md" },
+    { "name": "tune", "description": "반복 문제 해결을 위해 하네스 자체 수정", "file": "commands/tune.md" },
+    { "name": "autopilot", "description": "완전 자율 실행 + 후속 태스크 자동 체이닝", "file": "commands/autopilot.md" }
+  ],
+  "agents": [
+    { "name": "planner", "description": "태스크 분석 및 실행 계획 수립 에이전트", "file": "agents/planner.md" },
+    { "name": "worker", "description": "계획 기반 실행 에이전트", "file": "agents/worker.md" },
+    { "name": "reviewer", "description": "독립 검증 에이전트 (회의적 톤)", "file": "agents/reviewer.md" }
+  ],
+  "skills": [
+    { "name": "harness-workflow", "description": "Plan → Work → Review 워크플로우 가이드", "file": "skills/harness-workflow/SKILL.md" }
+  ]
+}
