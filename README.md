@@ -103,6 +103,13 @@ Claude Code에 "블로그 포스트 써줘"라고 시키면 한 번에 결과물
 - Worker: 실행만 하는 놈. 범위를 벗어나거나 "개선"하지 않는다.
 - Reviewer: 회의적(skeptical)으로 튜닝된 검증자. Worker의 자기평가를 신뢰하지 않는다.
 
+**도구 제한 (물리적 분리):**
+| 에이전트 | 쓸 수 있는 도구 | 못 쓰는 도구 | 이유 |
+|---------|---------------|-------------|------|
+| Planner | Read, Glob, Grep, WebSearch | **Write, Edit, Bash** | 계획만 하고 실행하면 안 됨 |
+| Worker | Read, Write, Edit, Bash, Grep | — (전체 권한) | 실행을 위해 모든 도구 필요 |
+| Reviewer | Read, Glob, Grep, **Bash** | **Write, Edit** | 검증은 하되 결과물 수정은 안 됨 |
+
 ### 커맨드 체계
 
 ```
@@ -129,14 +136,15 @@ Claude Code에 "블로그 포스트 써줘"라고 시키면 한 번에 결과물
 
 ```
 .harness/
+├── chain.json                   # autopilot 체인 상태 (태스크 간 연결)
 ├── 2026-03-29_linkedin-post/
-│   ├── plan.md           # 계획 (Markdown — 사람이 읽기 편함)
-│   ├── criteria.json     # 성공 기준 (JSON — 구조적 계약)
-│   ├── progress.md       # 실행 로그
-│   └── review.md         # 검증 결과
+│   ├── plan.md                  # 계획 (Markdown — 사람이 읽기 편함)
+│   ├── criteria.json            # 성공 기준 (JSON — 구조적 계약)
+│   ├── progress.md              # 실행 로그
+│   └── review.md                # 검증 결과
 ├── 2026-03-30_prd-epic12/
 │   └── ...
-└── context.md            # 세션 간 핸드오프
+└── context.md                   # 세션 간 핸드오프
 ```
 
 **criteria.json 예시:**
@@ -192,7 +200,8 @@ evan-harness/
 ├── templates/
 │   ├── plan.md.tmpl
 │   ├── criteria.json.tmpl
-│   └── review.md.tmpl
+│   ├── review.md.tmpl
+│   └── chain.json.tmpl         # autopilot 체인 인덱스 템플릿
 └── hooks/                       # (Phase 2에서 추가 예정)
 ```
 
@@ -229,12 +238,15 @@ whenToUse:
   - "언제 이 에이전트를 쓰나"
 tools:
   - Read
-  - Write
+  - Glob
+  - Grep
 ---
 
 여기에 시스템 프롬프트를 쓴다.
 이 에이전트의 역할, 제약사항, 출력 형식 등.
 ```
+
+**중요: 도구를 최소한으로 제한하라.** Planner에 Write를 주면 직접 실행해버리고, Reviewer에 Edit를 주면 결과물을 고쳐버린다. 역할에 필요한 도구만 줘야 분리가 된다.
 
 ### Step 3: Reviewer를 회의적으로 만들기
 
