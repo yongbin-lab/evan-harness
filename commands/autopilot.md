@@ -52,7 +52,12 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch, Agent
     - **Automatically start a new autopilot cycle** for the follow-up task
 13. If no obvious follow-up:
     - Report completion with a summary of all deliverables
-    - Stop
+    - Proceed to Phase 6
+
+### Phase 6: Log
+14. Append this run to `usecases.md` (see `/log` command format)
+    - 날짜, 태스크 요약, 유형, 결과, 체인 수, 인사이트 한 줄
+    - This happens automatically — do NOT skip
 
 ### Chain Examples
 

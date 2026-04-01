@@ -30,12 +30,16 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch, AskUser
 11. Reviewer writes `.harness/review.md`
 
 ### Phase 4: Resolution
-12. If **PASS** → report success to user
+12. If **PASS** → proceed to Phase 5
 13. If **FAIL** →
     - Show specific failures with actionable feedback
     - Re-launch Worker with the Reviewer's feedback (retry 1)
     - Re-launch Reviewer to verify fixes
     - If still FAIL after 2 retries → escalate to user with full context
+
+### Phase 5: Log
+14. Append this run to `usecases.md` (see `/log` command format)
+    - 날짜, 태스크 요약, 유형, 결과, 체인 수, 인사이트 한 줄
 
 ## Usage
 
