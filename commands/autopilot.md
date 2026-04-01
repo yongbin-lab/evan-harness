@@ -73,10 +73,44 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch, Agent
   → [Task 3] 스타일링 + 반응형 → PASS → 끝
 ```
 
+### Chain State: `.harness/chain.json`
+
+Autopilot은 체인 전체 상태를 `.harness/chain.json`에 기록한다. 이 파일이 태스크 간의 연결고리 역할을 한다.
+
+```json
+{
+  "original_task": "링크드인 포스트 작성",
+  "started_at": "2026-03-29T10:00:00Z",
+  "max_depth": 5,
+  "tasks": [
+    {
+      "index": 1,
+      "slug": "2026-03-29_linkedin-post-draft",
+      "status": "passed",
+      "output_files": ["output.md"],
+      "review_verdict": "PASS"
+    },
+    {
+      "index": 2,
+      "slug": "2026-03-29_linkedin-hook-variants",
+      "status": "in_progress",
+      "depends_on": "2026-03-29_linkedin-post-draft",
+      "output_files": []
+    }
+  ]
+}
+```
+
+**각 체인 태스크 시작 시:**
+1. Read `.harness/chain.json` — 이전 태스크 결과물 경로 확인
+2. Read 이전 태스크의 실제 결과물 — 다음 태스크의 입력으로 사용
+3. chain.json 업데이트 — 새 태스크 추가
+
 ### Chain Rules
 - 각 체인 태스크는 **자체 .harness/{task-slug}/ 폴더**에 상태 저장
+- `.harness/chain.json`이 전체 체인의 인덱스 역할
 - 최대 체인 깊이: **5 태스크** (무한 루프 방지)
-- 각 체인 시작 시 이전 태스크의 결과물 경로를 plan.md에 참조로 포함
+- 각 체인 시작 시 이전 태스크의 결과물을 **직접 읽어서** 컨텍스트로 활용
 - 체인이 의미 없으면 (이미 충분히 완성) 강제로 만들지 말 것
 
 ## Safety

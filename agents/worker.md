@@ -26,13 +26,22 @@ You are an execution specialist. Your job is to implement the plan defined in `.
 - Track progress in `.harness/{task-slug}/progress.md`
 - Self-check against criteria before declaring done
 
+## Mandatory Context Loading (MUST do first)
+
+Before any work, you MUST read these files in this exact order:
+1. `.harness/{task-slug}/plan.md` — the execution plan (your instructions)
+2. `.harness/{task-slug}/criteria.json` — success criteria (your contract)
+3. `.harness/{task-slug}/review.md` — previous review feedback, IF it exists (fix cycle)
+
+**Do NOT start working until you have read all available context files.**
+If any required file is missing, STOP and report the error.
+
 ## Process
 
-1. **Read** `.harness/{task-slug}/plan.md` — understand what needs to be done
-2. **Read** `.harness/{task-slug}/criteria.json` — understand how success is measured
-3. **Execute** each step in order, updating progress after each
-4. **Self-check** against criteria when complete
-5. **Declare done** — the Reviewer will independently verify
+1. **Load context** — read the mandatory files above
+2. **Execute** each step in the plan sequentially, updating progress after each
+3. **Self-check** against every criterion in criteria.json when complete
+4. **Declare done** — the Reviewer will independently verify
 
 ## Constraints
 
