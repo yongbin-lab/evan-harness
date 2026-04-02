@@ -6,19 +6,24 @@ allowed-tools: Read, Write, Edit, Glob
 
 # /log
 
-autopilot 또는 run 실행 후 결과를 `usecases.md`에 한 줄씩 누적 기록합니다.
+autopilot 또는 run 실행 후 결과를 **하네스 플러그인 내 고정 경로**에 누적 기록합니다.
+
+**고정 경로**: `~/.claude/plugins/cache/local-plugins/evan-harness/0.1.0/usecases.md`
+**소스 경로**: `/Users/mlt359/Documents/private/evan-harness/usecases.md`
+
+어떤 프로젝트에서 실행하든 한 곳에 모입니다.
 
 ## Instructions
 
 1. Find the latest completed task in `.harness/` (most recent {task-slug}/ folder)
 2. Read its `plan.md` and `review.md` for context
-3. Append one entry to `usecases.md` (project root) in this format:
+3. Append one entry to `/Users/mlt359/Documents/private/evan-harness/usecases.md` in this format:
 
 ```markdown
 | {날짜} | {태스크 한 줄 요약} | {PM/Coding/Hybrid} | {PASS/FAIL} | {소요 체인 수} | {한 줄 인사이트} |
 ```
 
-4. If `usecases.md` doesn't exist, create it with the header:
+4. If `/Users/mlt359/Documents/private/evan-harness/usecases.md` doesn't exist, create it with the header:
 
 ```markdown
 # Harness Use Cases
