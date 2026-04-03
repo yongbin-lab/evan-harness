@@ -46,6 +46,9 @@ allowed-tools: Read, Write, Edit, Glob, Grep, AskUserQuestion
 4. Ask for approval before making changes
 5. Edit the harness file with **minimal, targeted changes**
 6. Explain what was changed and why
+7. **Record the tuning in `.harness/memory.md`** under "## 튜닝 이력":
+   - 무엇을 왜 바꿨는지 한 줄로 기록
+   - 다음 세션에서 이 맥락을 기억하기 위함
 
 ## Important
 

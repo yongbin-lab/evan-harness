@@ -10,6 +10,9 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch, AskUser
 
 ## Instructions
 
+### Phase 0: Load Memory
+0. If `.harness/memory.md` exists, read it first — this contains learnings from previous sessions
+
 ### Phase 1: Plan
 1. Create `.harness/` directory if it doesn't exist
 2. Launch the **planner** agent with the user's task
@@ -40,6 +43,11 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch, AskUser
 ### Phase 5: Log
 14. Append this run to `usecases.md` (see `/log` command format)
     - 날짜, 태스크 요약, 유형, 결과, 체인 수, 인사이트 한 줄
+
+### Phase 6: Save Memory
+15. If anything was learned that would help future sessions, append to `.harness/memory.md`
+    - Project context, conventions discovered, user preferences observed
+    - Do NOT save if nothing new was learned
 
 ## Usage
 

@@ -19,6 +19,9 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch, Agent
 
 ## Instructions
 
+### Phase 0: Load Memory
+0. If `.harness/memory.md` exists, read it first — this contains learnings from previous sessions
+
 ### Phase 1: Autonomous Plan
 1. Create `.harness/{task-slug}/` directory
 2. Launch **planner** agent — plan.md + criteria.json 생성
@@ -58,6 +61,11 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch, Agent
 14. Append this run to `usecases.md` (see `/log` command format)
     - 날짜, 태스크 요약, 유형, 결과, 체인 수, 인사이트 한 줄
     - This happens automatically — do NOT skip
+
+### Phase 7: Save Memory
+15. If anything was learned that would help future sessions, append to `.harness/memory.md`
+    - Project context, conventions discovered, user preferences observed, tuning decisions
+    - Do NOT save if nothing new was learned
 
 ### Chain Examples
 
