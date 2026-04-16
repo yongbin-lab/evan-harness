@@ -8,6 +8,7 @@
     { "name": "tune", "description": "반복 문제 해결을 위해 하네스 자체 수정", "file": "commands/tune.md" },
     { "name": "autopilot", "description": "완전 자율 실행 + 후속 태스크 자동 체이닝", "file": "commands/autopilot.md" },
     { "name": "log", "description": "실행 결과를 usecases.md에 기록", "file": "commands/log.md" },
+    { "name": "insta", "description": "세션 대화를 인스타그램 콘텐츠(릴스/카드뉴스)로 변환", "file": "commands/insta.md" },
     { "name": "view", "description": "파일 또는 디렉토리를 브라우저에서 뷰어로 띄운다", "file": "commands/view.md" }
   ],
   "agents": [

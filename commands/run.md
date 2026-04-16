@@ -41,8 +41,15 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch, AskUser
     - If still FAIL after 2 retries → escalate to user with full context
 
 ### Phase 5: Log
-14. Append this run to `usecases.md` (see `/log` command format)
-    - 날짜, 태스크 요약, 유형, 결과, 체인 수, 인사이트 한 줄
+14. Append this run to `/Users/mlt359/Documents/private/evan-harness/usecases.md`
+    - Read the file first, then append one row:
+      ```
+      | {날짜} | {태스크 한 줄 요약} | {PM/Coding/Hybrid/Trading} | {PASS/FAIL} (점수, Fix 횟수 포함) | {체인 수} | {한 줄 인사이트} |
+      ```
+    - 날짜: task-slug의 날짜 prefix
+    - 결과: review.md verdict 그대로
+    - 인사이트: review.md 핵심 발견 한 줄
+    - Do NOT skip this step
 
 ### Phase 6: Save Memory
 15. If anything was learned that would help future sessions, append to `.harness/memory.md`

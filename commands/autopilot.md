@@ -58,8 +58,17 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch, Agent
     - Proceed to Phase 6
 
 ### Phase 6: Log
-14. Append this run to `usecases.md` (see `/log` command format)
-    - 날짜, 태스크 요약, 유형, 결과, 체인 수, 인사이트 한 줄
+14. Append this run to `/Users/mlt359/Documents/private/evan-harness/usecases.md`
+    - Read the file first, then append one row per completed task in this format:
+      ```
+      | {날짜} | {태스크 한 줄 요약} | {PM/Coding/Hybrid/Trading} | {PASS/FAIL} (점수, Fix 횟수 포함) | {체인 수} | {한 줄 인사이트} |
+      ```
+    - 날짜: task-slug의 날짜 prefix (e.g. 2026-04-16)
+    - 유형: PM, Coding, Hybrid, Trading 중 판단
+    - 결과: review.md의 verdict 그대로. Fix 있으면 "PASS (10/10, Fix 1회)" 식으로
+    - 체인: chain.json의 tasks 배열 길이 - 1 (첫 태스크는 0)
+    - 인사이트: review.md의 핵심 발견 또는 deliverable 요약 한 줄
+    - 체인 태스크가 여러 개면 **각각 별도 행**으로 기록
     - This happens automatically — do NOT skip
 
 ### Phase 7: Save Memory
